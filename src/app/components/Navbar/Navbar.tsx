@@ -1,4 +1,3 @@
-// Navbar.js
 import Link from 'next/link';
 import './Navbar.css';
 
