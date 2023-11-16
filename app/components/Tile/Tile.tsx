@@ -1,12 +1,22 @@
 import React from "react";
-import './Tile.css'
+import Image from "next/image";
+import './Tile.css';
 
-export default function Tile() {
+interface TileProps {
+  title: string;
+  description: string;
+  image: string;
+}
+
+const Tile: React.FC<TileProps> = ({ title, description, image }) => {
   return (
     <div className="tile">
-      <h2>Tile 1</h2>
-      <p>Content for Tile 1 goes here.</p>
-      <button>Click Me</button>
+      <h2>{title}</h2>
+      <p>{description}</p>
+      <Image src={image} alt={title} width={100} height={100} />
+      <button>Learn more...</button>
     </div>
   );
-}
+};
+
+export default Tile;
