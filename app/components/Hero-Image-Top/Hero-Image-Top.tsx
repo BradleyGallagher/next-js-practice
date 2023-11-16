@@ -7,7 +7,7 @@ const HeroImageTop = () => {
     <div>
       <div className="hero">
         <Image
-          classname="image"
+          className="image"
           src="/Laughing.jpg"
           alt=""
           width={600}
