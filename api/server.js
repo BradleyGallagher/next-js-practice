@@ -1,47 +1,37 @@
-import express from 'express';
-import { ApolloServer, gql } from 'apollo-server-express';
-import cors from 'cors';
+import { ApolloServer } from '@apollo/server';
+import { startStandaloneServer } from '@apollo/server/standalone';
+import { addMocksToSchema } from '@graphql-tools/mock';
+import { makeExecutableSchema } from '@graphql-tools/schema';
 
-const app = express();
-
-// Use CORS middleware before other middlewares
-app.use(cors({
-    origin: 'http://localhost:3000', // adjust this if your front-end is hosted on a different domain
-    credentials: true,
-  }));
-
-// GraphQL type definitions and resolvers
-const typeDefs = gql`
+const typeDefs = `#graphql
   type Query {
-    time: TimeData!
-  }
-
-  type TimeData {
-    epoch: Float!
-    description: String!
+    hello: String
+    resolved: String
   }
 `;
 
 const resolvers = {
   Query: {
-    time: () => ({
-      epoch: Date.now() / 1000,
-      description: "The current server time, in epoch seconds, at time of processing the request."
-    }),
+    hello: () => 'Hello, world!',
+    resolved: () => 'Resolved',
   },
 };
 
+
+const mocks = {
+  Int: () => 6,
+  Float: () => 22.1,
+  String: () => 'Hello',
+};
+
+
 const server = new ApolloServer({
-  typeDefs,
-  resolvers
+  schema: addMocksToSchema({
+    schema: makeExecutableSchema({ typeDefs, resolvers }),
+    mocks,
+  }),
 });
 
-// Start the Apollo Server and apply middleware
-(async () => {
-  await server.start();
-  server.applyMiddleware({ app, path: '/graphql' });
+const { url } = await startStandaloneServer(server, { listen: { port: 4000 } });
 
-  app.listen({ port: 4000 }, () => {
-    console.log(`Server ready at http://localhost:4000${server.graphqlPath}`);
-  });
-})();
+console.log(`🚀 Server listening at: ${url}`);
