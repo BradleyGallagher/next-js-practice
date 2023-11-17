@@ -1,37 +1,31 @@
-import { ApolloServer } from '@apollo/server';
-import { startStandaloneServer } from '@apollo/server/standalone';
-import { addMocksToSchema } from '@graphql-tools/mock';
-import { makeExecutableSchema } from '@graphql-tools/schema';
+const { ApolloServer, gql } = require('apollo-server');
+const data = require('./data.json'); // assuming your JSON file is data.json
 
-const typeDefs = `#graphql
+// GraphQL schema
+const typeDefs = gql`
+  type Service {
+    id: Int
+    title: String
+    image: String
+    description: String
+  }
+
   type Query {
-    hello: String
-    resolved: String
+    services: [Service]
   }
 `;
 
+// Resolvers define the technique for fetching the types in the schema
 const resolvers = {
   Query: {
-    hello: () => 'Hello, world!',
-    resolved: () => 'Resolved',
+    services: () => data.services,
   },
 };
 
+// Create the Apollo Server
+const server = new ApolloServer({ typeDefs, resolvers });
 
-const mocks = {
-  Int: () => 6,
-  Float: () => 22.1,
-  String: () => 'Hello',
-};
-
-
-const server = new ApolloServer({
-  schema: addMocksToSchema({
-    schema: makeExecutableSchema({ typeDefs, resolvers }),
-    mocks,
-  }),
+// Start the server
+server.listen().then(({ url }) => {
+  console.log(`🚀 Server ready at ${url}`);
 });
-
-const { url } = await startStandaloneServer(server, { listen: { port: 4000 } });
-
-console.log(`🚀 Server listening at: ${url}`);

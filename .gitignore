@@ -18,6 +18,7 @@ node_modules
 
 # misc
 .DS_Store
+.package-lock.json
 *.pem
 
 # debug

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const HeroText = () => {
   return (
-    <div>
+    <div className="Hero-Text-Container">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam pretium
         ligula et est aliquet eleifend. Etiam a sem nec enim vehicula fringilla.
