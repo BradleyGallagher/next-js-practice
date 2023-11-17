@@ -8,7 +8,7 @@ const Navbar = () => {
         Home
       </Link>
       <Link href="/list">
-        Lists
+        Services
       </Link>
       <Link href="/preferances">
         Settings

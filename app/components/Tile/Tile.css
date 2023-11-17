@@ -1,6 +1,14 @@
+.tile_container {
+  display: flex;
+  flex-direction: row;
+}
+
 .tile {
+    display: flex;
+    flex-direction: column;
     background-color :#FFC133;
     width: 300px;
+    margin-bottom: 20px;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

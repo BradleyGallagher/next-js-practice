@@ -1,22 +1,40 @@
 import Tile from "../components/Tile/Tile";
+import { getClient } from "@/lib/client";
+import { gql } from "@apollo/client";
+import { Key } from "react";
 
-// Backend and Database implemetation to replace the tileData array
-const tileData = [
-  { title: "Tile 1", description: "Description for Tile 1.", image: "/path/to/image1.jpg" },
-  { title: "Tile 2", description: "Description for Tile 2.", image: "/path/to/image2.jpg" },
-  { title: "Tile 3", description: "Description for Tile 3.", image: "/path/to/image3.jpg" },
-  { title: "Tile 4", description: "Description for Tile 4.", image: "/path/to/image4.jpg" },
-];
+// Define your GraphQL query
+const GET_ALL_SERVICES = gql`
+query Services {
+  services {
+    id
+    title
+    description
+    image
+  }
+}
+`;
 
-export default function List() {
+export default async function List() {
+  // Execute the query
+  const { data } = await getClient().query({ query: GET_ALL_SERVICES });
+
+  console.log(data);
+
+  // Check if data is loaded and has the allServices field
+  if (!data || !data.services) {
+    return <div>Loading...</div>; // Or handle the loading state appropriately
+  }
+
+  // Render your tiles based on the fetched data
   return (
-    <div>
-      {tileData.map((tile, index) => (
+    <div className="Tile_container">
+      {data.services.map((service: { id: string; title: string; description: string; image: string; }) => (
         <Tile
-          key={index}
-          title={tile.title}
-          description={tile.description}
-          image={tile.image}
+          key={service.id}
+          title={service.title}
+          description={service.description}
+          image={service.image}
         />
       ))}
     </div>

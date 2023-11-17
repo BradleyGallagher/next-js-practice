@@ -13,7 +13,7 @@ const Tile: React.FC<TileProps> = ({ title, description, image }) => {
     <div className="tile">
       <h2>{title}</h2>
       <p>{description}</p>
-      <Image src={image} alt={title} width={100} height={100} />
+      {/* <Image src={image} alt={title} width={100} height={100} /> */}
       <button>Learn more...</button>
     </div>
   );
