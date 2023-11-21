@@ -10,8 +10,8 @@ const Navbar = () => {
       <Link href="/list">
         Services
       </Link>
-      <Link href="/preferances">
-        Settings
+      <Link href="/contact">
+        Contact
       </Link>
     </nav>
   );
