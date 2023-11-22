@@ -1,2 +1,23 @@
-$primary-color: #FFC133,
-$secondary-color: #555
+$primary-color: #FFC133;
+$secondary-color: #333;
+$tertiary-color: #726547;
+$font-stack: Helvetica, sans-serif;
+
+h6 { font-size:1.4em };
+h5 { font-size:2.8em };
+h4 { font-size:4.2em };
+h3 { font-size:5.6em };
+h2 { font-size:7em };
+h1 { font-size:8.4em };
+
+body {
+    font: 100% $font-stack;
+    color: $primary-color;
+  }
+ 
+:export {
+  primaryColor: $primary-color;
+  secondaryColor: $secondary-color;
+  tertiaryColor: $tertiary-color;
+
+}

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 footer {
-    background-color: #333;
+    background-color: styles.$secondary-color;
     color: hsl(40, 5%, 64%);
     padding: 2rem;
     text-align: center;
