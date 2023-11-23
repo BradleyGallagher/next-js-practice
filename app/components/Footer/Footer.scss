@@ -1,24 +1,26 @@
+@use '../../styles/styles.scss';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 footer {
     background-color: styles.$secondary-color;
-    color: hsl(40, 5%, 64%);
+    color: styles.$primary-color;
     padding: 2rem;
     text-align: center;
     margin-top: 20px;
   }
   
   div {
-    margin: 0 auto;
+    margin-top: 0px;
+  }
+
+  h5 {
+    padding-bottom: 5px;
   }
   
- h3 {
-    color: hsl(40, 5%, 64%);
-  }
-  
-  p {
-    margin-top: 0.5rem;
+  .feedback {
+    color: styles.$primary-color
   }
   

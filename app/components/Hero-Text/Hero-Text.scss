@@ -1,11 +1,14 @@
+@use '../../styles/styles.scss';
 
 .Hero-Text-Container {
     display: flex;
     flex-direction: column;
     padding: 20px;
+    color: styles.$secondary-color;
   }
   
   p {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     line-height: 1.5;
+
   }

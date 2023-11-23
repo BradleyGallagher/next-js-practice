@@ -1,3 +1,5 @@
+@use '../../styles/styles.scss';
+
 .hero-container {
   display: flex;
 }
@@ -18,5 +20,5 @@
 }
 
 .hero-text p {
-  /* Add styles for the heading as needed */
+  color: styles.$secondary-color;
 }

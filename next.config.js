@@ -8,4 +8,12 @@ const path = require('path')
     sassOptions: {
       includePaths: [path.join(__dirname, 'styles')],
     },
+    images: {
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: 'picsum.photos'
+        }
+      ]
+    }
   }

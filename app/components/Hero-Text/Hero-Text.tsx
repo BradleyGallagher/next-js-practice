@@ -1,5 +1,5 @@
 import React from "react";
-import "./Hero-Text.css";
+import "./Hero-Text.scss";
 import Image from "next/image";
 
 const HeroText = () => {
