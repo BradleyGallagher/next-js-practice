@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Footer from './components/Footer/Footer'
 import Navbar from './components/Navbar/Navbar'
-import './layout.css';
+import './layout.scss';
 
 export const metadata: Metadata = {
   title: 'Irwin Mitchell Test',

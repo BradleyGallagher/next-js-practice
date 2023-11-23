@@ -1,0 +1,62 @@
+@use "../../styles/styles.scss";
+
+.contact-form {
+  max-width: 600px;
+  margin: 250px auto;
+  padding: 20px;
+  background-color: styles.$primary-color;
+  border: 5px solid styles.$secondary-color;
+  border-radius: 5px;
+  font-family: styles.$font-stack;
+
+  h3 {
+    text-align: center;
+    padding-bottom: 5px;
+    color: styles.$secondary-color;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    div {
+      margin-bottom: 15px;
+
+      label {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+        border: 3px solid styles.$secondary-color;
+        border-radius: 5px;
+        text-align: center;
+        color: styles.$secondary-color;
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+    }
+
+    button {
+      background-color: styles.$tertiary-color;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 16px;
+      font-family: styles.$font-stack;
+
+      &:hover {
+        background-color: #217dbb;
+      }
+    }
+  }
+}

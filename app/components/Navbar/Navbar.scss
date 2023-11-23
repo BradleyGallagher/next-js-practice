@@ -1,0 +1,26 @@
+@use '../../styles/styles.scss';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+nav {
+    display: flex;
+    justify-content: right;
+    padding: 1rem;
+    background-color: styles.$secondary-color;
+    color: styles.$primary-color;
+    margin-bottom: 10px;
+    font-family: styles.$font-stack;
+  }
+  
+nav a {
+    text-decoration: underline;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+  }
+  
+nav a:hover {
+    background-color: styles.$tertiary-color;
+  }

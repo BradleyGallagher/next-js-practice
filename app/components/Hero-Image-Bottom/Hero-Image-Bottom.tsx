@@ -1,5 +1,5 @@
 import React from "react";
-import "./Hero-Image-Bottom.css";
+import "./Hero-Image-Bottom.scss";
 import Image from "next/image";
 
 const HeroImageBottom = () => {
