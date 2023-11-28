@@ -12,42 +12,40 @@
 }
 
 .tile {
-    display: flex;
-    flex-direction: column;
-    background-color :styles.$primary-color;
-    width: 300px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
-    text-align: center;    
-    border: 5px solid styles.$secondary-color;
-    border-radius: 5px;
-  }
+  display: flex;
+  flex-direction: column;
+  background-color: styles.$primary-color;
+  width: 300px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+  text-align: center;    
+  border: 5px solid styles.$secondary-color;
+  border-radius: 5px;
+}
   
-  h3 {
-    
-    color: styles.$secondary-color;
-    text-decoration: underline;
-  }
-  
-  p {
-    color: #666;
-    margin: 10px 0 10px 0;
-    color: styles.$secondary-color;
-  }
-  
-  button {
-    background-color: styles.$tertiary-color;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: 20px;
+h3 {    
+  color: styles.$secondary-color;
+  text-decoration: underline;
+}
 
-  }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
+p {
+  color: styles.$secondary-color;
+  margin: 10px 0;
+}
+
+.button-like {
+  display: inline-block;
+  background-color: styles.$tertiary-color;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+.button-like:hover {
+  background-color: #0056b3;
+}
