@@ -16,6 +16,13 @@ query Services {
 }
 `;
 
+const pageLinks = [
+  '/business',
+  '/international',
+  '/personal',
+  '/wealth', 
+];
+
 export default async function List() {
   // Execute the query
   const { data } = await getClient().query({ query: GET_ALL_SERVICES });
@@ -33,12 +40,13 @@ export default async function List() {
     <HeroImageTop />
     <h1> Wealth </h1>
     <div className="Tile_container">
-      {data.services.map((service: { id: string; title: string; description: string; image: string; }) => (
+      {data.services.map((service: { id: string; title: string; description: string; image: string; }, index) => (
         <Tile
           key={service.id}
           title={service.title}
           description={service.description}
           image={service.image}
+          pageLink={pageLinks[index]}
         />
       ))}
     </div>
